@@ -1,8 +1,15 @@
 import React from "react";
+import { motion } from "motion/react";
 
 const Description = () => {
   return (
-    <div className="flex flex-col">
+    <motion.div
+      className="flex flex-col"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="text-center items-center">
         <h1 className="text-3xl sm:text-4xl font-semibold mb-2 ">
           Create AI Magic
@@ -18,7 +25,7 @@ const Description = () => {
           <h2 className="text-2xl sm:text-3xl  mb-4 text-gray-800">
             Introducing AI-Powered Creativity
           </h2>
-          <p className=" text-gray-600 leading-relaxed mb-4">
+          <p className=" text-gray-600 leading-relaxed mb-4 text-justify">
             At Creora, we specialize in transforming your imagination into
             stunning visuals. Our cutting-edge AI technology turns simple text
             prompts into breathtaking images, allowing you to bring your
@@ -26,7 +33,7 @@ const Description = () => {
             designer, or just someone looking for inspiration, Creora makes the
             process magical and accessible.
           </p>
-          <p className=" text-gray-600 leading-relaxed">
+          <p className=" text-gray-600 leading-relaxed text-justify">
             With Creora, creating beautiful images has never been easier. Simply
             describe your vision, and our AI does the rest—quickly generating
             visuals tailored to your input. From concept to masterpiece, Creora
@@ -43,7 +50,7 @@ const Description = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

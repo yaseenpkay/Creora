@@ -4,7 +4,6 @@ import Tutorial from "../components/Tutorial";
 import Description from "../components/Description";
 import Testimonials from "../components/Testimonials";
 import CallToAction from "../components/CallToAction";
-import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -14,7 +13,6 @@ const Home = () => {
       <Description />
       <Testimonials />
       <CallToAction />
-      <Footer />
     </div>
   );
 };
