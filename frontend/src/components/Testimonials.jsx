@@ -11,10 +11,10 @@ const Testimonials = () => {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h2 className="text-3xl sm:text-4xl  mb-4 font-semibold ">
+      <h2 className="text-3xl sm:text-4xl  mb-4 font-semibold text-center">
         Customer Testimonials
       </h2>
-      <p className=" text-gray-600 leading-relaxed mb-10">
+      <p className=" text-gray-600 leading-relaxed mb-10 text-center">
         What Our Users Are Saying
       </p>
 

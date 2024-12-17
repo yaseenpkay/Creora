@@ -21,7 +21,7 @@ const Tutorial = () => {
             className="flex rounded-lg items-center gap-4 p-5 px-8 bg-white/20 shadow-md border cursor-pointer hover:scale-[1.01] transition-all duration-300"
             key={index}
           >
-            <img src="item.icon" alt="" />
+            <img src={item.icon} alt="item" className="w-5 mr-3" />
             <div>
               <h2 className="text-lg sm:text-xl font-medium ">{item.title}</h2>
               <p className="text-gray-500">{item.description}</p>

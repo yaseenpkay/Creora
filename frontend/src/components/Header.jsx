@@ -44,14 +44,14 @@ const Header = () => {
 
       <motion.button
         onClick={handleCreateClick}
-        className="sm:text-lg text-white bg-black w-auto mt-8 px-12 py-2 flex items-center gap-2 rounded-full"
+        className="sm:text-lg text-white bg-black w-auto mt-8 px-12 py-2 flex items-center gap-2 rounded-full "
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={{ delay: 0.5, duration: 0.7 }}
       >
         Create Magic
+        <img src="/img/crystal.png" alt="crystal" className="h-5" />
       </motion.button>
     </motion.div>
   );

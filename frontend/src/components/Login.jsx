@@ -1,10 +1,57 @@
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion"; // Import motion for animation
 import { AppContext } from "../context/AppContext";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [state, setState] = useState("Sign In");
-  const { setShowLogin } = useContext(AppContext);
+  const { setShowLogin, backendUrl, setToken, setUser } =
+    useContext(AppContext);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (state === "Sign In") {
+        const response = await axios.post(backendUrl + "/api/user/login", {
+          email,
+          password,
+        });
+
+        if (response.data.success) {
+          setToken(response.data.token);
+          setUser(response.data.user);
+          localStorage.setItem("token", response.data.token);
+          setShowLogin(false);
+        } else {
+          toast.error(response.data.message);
+        }
+      } else {
+        const response = await axios.post(backendUrl + "/api/user/register", {
+          name,
+          email,
+          password,
+        });
+
+        if (response.data.success) {
+          setToken(response.data.token);
+          setUser(response.data.user);
+          localStorage.setItem("token", response.data.token);
+          setShowLogin(false);
+        } else {
+          toast.error(response.data.message);
+        }
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -24,6 +71,7 @@ const Login = () => {
   return (
     <div className="fixed left-0 right-0 bottom-0 top-0 z-10 backdrop-blur-sm bg-black/40 flex justify-center items-center">
       <motion.form
+        onSubmit={handleSubmit}
         className="relative bg-white rounded-xl p-10 text-gray-600"
         variants={modalVariants} // Apply variants
         initial="hidden" // Start animation hidden
@@ -42,6 +90,10 @@ const Login = () => {
               placeholder="Full Name"
               required
               className="outline-none text-sm "
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              value={name}
             />
           </div>
         )}
@@ -51,6 +103,10 @@ const Login = () => {
             placeholder="Email ID"
             required
             className="outline-none text-sm "
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
           />
         </div>
         <div className="border px-6 py-2 border-gray-400 flex items-center gap-2 rounded-full mt-3">
@@ -59,13 +115,20 @@ const Login = () => {
             placeholder="Password"
             required
             className="outline-none text-sm "
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            value={password}
           />
         </div>
         <p className="text-sm text-green-600 my-4 cursor-pointer ">
           Forgot password?
         </p>
 
-        <button className="bg-green-300 text-green-900 w-full py-2 rounded-full">
+        <button
+          type="submit"
+          className="bg-green-300 text-green-900 w-full py-2 rounded-full"
+        >
           {state === "Sign In" ? "Sign In" : "Sign Up"}
         </button>
 

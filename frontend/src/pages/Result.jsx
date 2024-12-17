@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext";
 
 const Result = () => {
   const [image, setImage] = useState("/img/generate.jpg");
-  const [isImageLoaded, setIsImageLoaded] = useState(true);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [prompt, setPrompt] = useState("");
 
-  const onSubmitHandle = async (e) => {};
+  const onSubmitHandle = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (prompt) {
+      const image = await generateImage(prompt);
+      if (image) {
+        setIsImageLoaded(true);
+        setImage(image);
+      }
+    }
+    setLoading(false);
+  };
+
+  const { generateImage } = useContext(AppContext);
 
   return (
     <form
@@ -18,7 +33,7 @@ const Result = () => {
           <img
             src={image}
             alt="Generate Image"
-            className="max-w-xs rounded-lg"
+            className="md:max-w-xs rounded-lg "
           />
           <span
             className={`absolute bottom-0 left-0 h-1 bg-green-500 ${
@@ -34,8 +49,32 @@ const Result = () => {
           Manifesting....
         </p>
       </div>
+      {/* {!isImageLoaded && (
+        <div className="flex w-full max-w-xl text-sm p-1 mt-5 rounded-full border border-gray-600">
+        <textarea
+          onChange={(e) => {
+            setPrompt(e.target.value);
+            // Auto-adjust height
+            e.target.style.height = 'auto';
+            e.target.style.height = `${e.target.scrollHeight}px`;
+          }}
+          value={prompt}
+          placeholder="Unleash your imagination here"
+          className="flex-1 bg-transparent outline-none ml-8 resize-none overflow-hidden 
+                     min-h-[50px] max-h-[150px] w-full"
+          rows={1}
+        />
+        <button
+          className="bg-black h-10 ml-2 text-green-100 px-10 sm:px-12 py-3 rounded-full text-white"
+          type="submit"
+        >
+          Create
+        </button>
+      </div>
+      )} */}
+
       {!isImageLoaded && (
-        <div className="flex w-full max-w-xl  text-sm p-1 mt-5 rounded-full border border-gray-600">
+        <div className="flex w-full max-w-xl  text-sm p-1 mt-5  rounded-full border border-gray-600">
           <input
             onChange={(e) => setPrompt(e.target.value)}
             value={prompt}
@@ -44,7 +83,7 @@ const Result = () => {
             className="flex-1 bg-transparent outline-none ml-8 max-sm:w-20"
           />
           <button
-            className="bg-black text-green-100 px-10 sm:px-12 py-3 rounded-full text-white"
+            className="bg-black ml-2 text-green-100 px-10 sm:px-12 py-3 rounded-full text-white"
             type="submit"
           >
             Create

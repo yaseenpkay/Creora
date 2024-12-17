@@ -1,14 +1,19 @@
 // assets.jsx
 export const steps = [
   {
+    icon: "/svg/describe.svg",
     title: "Describe",
     description: "Enter a few descriptive words or sentences.",
   },
   {
+    icon: "/svg/generate.svg",
+
     title: "Generate",
     description: "Watch Creora bring your ideas to life in seconds.",
   },
   {
+    icon: "/svg/download.svg",
+
     title: "Download and Share",
     description: "Save your masterpiece and share it with the world.",
   },

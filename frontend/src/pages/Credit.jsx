@@ -19,6 +19,7 @@ const Credit = () => {
             key={index}
             className="bg-white text-gray-700 hover:scale-[1.03] transition-all duration-500 rounded-lg shadow-md p-6 sm:p-8 flex flex-col items-center justify-between"
           >
+            <img src="/img/logo.png" alt="logo" className="w-20" />
             <h3 className="text-lg font-semibold mb-3 text-center">
               {price.title}
             </h3>
