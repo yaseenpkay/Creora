@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex items-center">
           {" "}
           <img src="/img/logo.png" alt="logo" className="w-10" />
-          Creora
+          <h1 className="text-xl">Creora</h1>
         </div>
       </Link>
 
