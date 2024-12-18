@@ -113,22 +113,22 @@ Open your browser and navigate to `http://localhost:5173` to access the Creora a
 ### Home Page
 
 The landing page of **Creora**, showcasing its simple and intuitive design.
-![Home Page](./screenshots/home.png)
+![Home Page](screenshots/home.png)
 
 ### About Page
 
 Learn about the features and functionality of **Creora**.
-![About Page](./screenshots/about.png)
+![About Page](screenshots/about.png)
 
 ### Result Page
 
 A sample result of the text-to-image generation powered by the ClipDrop API.
-![Result Page](./screenshots/result.png)
+![Result Page](screenshots/result.png)
 
 ### Pricing Page
 
 Details about pricing plans for **Creora**'s services.
-![Pricing Page](./screenshots/price.png)
+![Pricing Page](screenshots/price.png)
 
 ---
 
