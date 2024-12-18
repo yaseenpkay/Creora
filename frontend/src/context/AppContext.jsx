@@ -58,12 +58,6 @@ const AppContextProvider = (props) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (token) {
-  //     loadCredits();
-  //   }
-  // }, [token]);
-
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");

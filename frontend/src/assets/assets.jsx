@@ -60,19 +60,19 @@ export const testimonials = [
 
 export const pricing = [
   {
-    price: "Free",
+    price: "$9",
     title: "Starter Plan",
     description: "Explore Creora with basic features.",
-    credits: "10",
+    credits: "100",
   },
   {
-    price: "$19",
+    price: "$49",
     title: "Pro Plan",
     description: "Faster generation and advanced templates.",
     credits: "500",
   },
   {
-    price: "$49",
+    price: "$99",
     title: "Enterprise Plan",
     description: "Priority support and all Pro features.",
     credits: "1000",
