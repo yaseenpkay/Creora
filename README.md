@@ -128,7 +128,7 @@ A sample result of the text-to-image generation powered by the ClipDrop API.
 ### Pricing Page
 
 Details about pricing plans for **Creora**'s services.
-![Pricing Page](screenshots/price.png)
+![Pricing Page](screenshots/pricing.png)
 
 ---
 
